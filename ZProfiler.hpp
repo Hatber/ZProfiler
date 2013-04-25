@@ -32,39 +32,39 @@ class ZProfiler
 	};
 
 	vector< ZTimePoint > Profile;
-    int PointCounter;
+	int PointCounter;
 
-    string IntToString(int Num);
-    vector< ZTimePoint >::iterator Find(string& Name);
-    vector< ZTimePoint >::iterator GetLast();
+	string IntToString(int Num);
+	vector< ZTimePoint >::iterator Find(string& Name);
+	vector< ZTimePoint >::iterator GetLast();
 
 
 public:
-    ZProfiler();
+	ZProfiler();
 
-    int Add(string Name);
-    int Add();
+	int Add(string Name);
+	int Add();
 
-    int Remove(string Name);
+	int Remove(string Name);
 
-    int End(string Name);
-    int End();
-    int EndLast();
+	int End(string Name);
+	int End();
+	int EndLast();
 
-    int Stop(string Name);
-    int StopLast();
+	int Stop(string Name);
+	int StopLast();
 
-    int Continue(string Name);
-    int ContinueLast();
+	int Continue(string Name);
+	int ContinueLast();
 
-    int Clear();
+	int Clear();
 
-    double GetFullTime(int *Error = NULL);
-    double GetPointTime(string Name, int *Error = NULL);
-    double GetPointTimeLast(int *Error = NULL);
+	double GetFullTime(int *Error = NULL);
+	double GetPointTime(string Name, int *Error = NULL);
+	double GetPointTimeLast(int *Error = NULL);
 
-    void PrintInfo();
-    ~ZProfiler();
+	void PrintInfo();
+	~ZProfiler();
 };
 
 #endif // __ZPROFILER__
