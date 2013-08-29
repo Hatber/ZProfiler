@@ -49,10 +49,10 @@ string ZProfiler::IntToString(int Num)
 
 vector< ZProfiler::ZTimePoint >::iterator ZProfiler::Find(string& Name)
 {
-	unsigned int tmp;
+	size_t tmp;
 
 	tmp = Profile.size();
-	for(int i = 0; i<tmp; i++)
+	for(size_t i = 0; i<tmp; i++)
 	{
 		if(Profile[i].Name == Name)
 		{
@@ -133,6 +133,10 @@ int ZProfiler::End(string Name)
 	{
 		if(!it->Lock)
 		{
+		    if(it->WaitLock)
+            {
+                Continue(it->Name);
+            }
 			clock_gettime(CLOCK_REALTIME, &it->End);
 			it->End = tmp;
 			it->Lock = true;
@@ -288,7 +292,7 @@ void ZProfiler::PrintInfo()
 	}
 
 	cout.setf(ios::fixed);
-	cout << " Full Time: " << setprecision(9) << Summ << endl;
+	cout << ">>>>FULL TIME: " << setprecision(9) << Summ << endl;
 
 	for(it = Profile.begin(); it!=Profile.end(); it++)
 	{

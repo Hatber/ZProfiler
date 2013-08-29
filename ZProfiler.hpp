@@ -21,7 +21,7 @@ const char PROFILE_AUTOGEN_KEY[] = "AUTOGEN_";
 
 class ZProfiler
 {
-	struct ZTimePoint{
+	struct ZTimePoint {
 		string Name;
 		struct timespec Start, End;
 		struct timespec StartWait, EndWait;
