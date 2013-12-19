@@ -72,6 +72,9 @@ ZProfiler::ZProfiler()
 {
 	PointCounter = -1;
 	Profile.reserve(8);
+
+	Add("warming-up");
+	Remove("warming-up");
 }
 
 int ZProfiler::Add(string Name)
